@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - VG CS Classes | Foundation, Pre-Competitive & Competitive Batches</title>
+    <meta name="description" content="Explore our comprehensive courses: Foundation Batch (6th-10th), Pre-Competitive (11th-12th), and Competitive Batch (12th onwards). Join VG CS Classes today!">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-btn {
+            bottom: 100px;
+            right: 20px;
+            background: #25d366;
+        }
+        
+        .call-btn {
+            bottom: 40px;
+            right: 20px;
+            background: #f97316;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background: #1e3a8a;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fee-calculator {
+            background: linear-gradient(135deg, #f97316, #3b82f6);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="images/vgcs_page0_full.png" alt="VG CS Classes" class="h-10 w-auto">
+                    <span class="ml-2 text-xl font-bold text-gray-900">VG CS Classes</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-800 transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-800 transition-colors">About</a>
+                    <a href="courses.html" class="text-blue-800 font-medium border-b-2 border-orange-500 pb-1">Courses</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-800 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden mobile-menu-btn">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg md:hidden">
+            <div class="p-4">
+                <button class="mobile-menu-close mb-4">
+                    <i class="fas fa-times text-gray-700 text-xl"></i>
+                </button>
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">About</a>
+                    <a href="courses.html" class="text-blue-800 font-medium py-2 border-l-4 border-orange-500 pl-3">Courses</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <section class="bg-blue-800 pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-blue-200 mb-4">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <span class="mx-2">/</span>
+                <span class="text-white">Courses</span>
+            </nav>
+            <h1 class="text-5xl font-bold text-white mb-4">Our Courses</h1>
+            <p class="text-xl text-blue-100 max-w-3xl">
+                Comprehensive computer science programs designed for different academic levels 
+                and learning objectives. Choose the perfect course for your journey.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Course Tabs -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="tab-button active px-6 py-3 rounded-lg font-semibold bg-gray-100 text-gray-700" onclick="showTab('foundation')">
+                    Foundation Batch
+                </button>
+                <button class="tab-button px-6 py-3 rounded-lg font-semibold bg-gray-100 text-gray-700" onclick="showTab('pre-competitive')">
+                    Pre-Competitive
+                </button>
+                <button class="tab-button px-6 py-3 rounded-lg font-semibold bg-gray-100 text-gray-700" onclick="showTab('competitive')">
+                    Competitive Batch
+                </button>
+            </div>
+            
+            <!-- Foundation Batch Tab -->
+            <div id="foundation" class="tab-content active">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <img src="images/brochure_page1_full.png" alt="Foundation Batch" class="w-full rounded-xl shadow-lg">
+                    </div>
+                    
+                    <div class="reveal">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Foundation Batch</h2>
+                        <p class="text-xl text-orange-600 font-semibold mb-6">Class 6th - 10th</p>
+                        <p class="text-gray-600 text-lg mb-6">
+                            Perfect for young learners beginning their computer science journey. 
+                            This course builds strong fundamentals in programming, logical thinking, 
+                            and problem-solving skills that form the foundation for advanced learning.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <h3 class="text-2xl font-bold text-gray-900">What You'll Learn:</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Basic programming concepts using Scratch and Python</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Logical reasoning and algorithmic thinking</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Computer fundamentals and digital literacy</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Problem-solving through fun projects</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Introduction to web development basics</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-6 rounded-xl mb-8">
+                            <h4 class="text-lg font-bold text-gray-900 mb-3">Course Details</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-gray-500">Duration:</span>
+                                    <span class="font-semibold ml-2">12 months</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Classes:</span>
+                                    <span class="font-semibold ml-2">3 per week</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Batch Size:</span>
+                                    <span class="font-semibold ml-2">15 students</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Fee:</span>
+                                    <span class="font-semibold ml-2">₹3,000/month</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="inline-block bg-blue-800 hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                            Enroll Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pre-Competitive Batch Tab -->
+            <div id="pre-competitive" class="tab-content">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <img src="images/brochure_page2_full.png" alt="Pre Competitive Batch" class="w-full rounded-xl shadow-lg">
+                    </div>
+                    
+                    <div class="reveal">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Pre-Competitive Batch</h2>
+                        <p class="text-xl text-orange-600 font-semibold mb-6">Class 11th - 12th</p>
+                        <p class="text-gray-600 text-lg mb-6">
+                            Designed for higher secondary students preparing for competitive programming 
+                            and college-level computer science. This course covers advanced concepts 
+                            and competitive programming fundamentals.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <h3 class="text-2xl font-bold text-gray-900">What You'll Learn:</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Advanced data structures (Arrays, Linked Lists, Trees)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Algorithm design and analysis</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Competitive programming basics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Object-oriented programming concepts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Database management and SQL</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-6 rounded-xl mb-8">
+                            <h4 class="text-lg font-bold text-gray-900 mb-3">Course Details</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-gray-500">Duration:</span>
+                                    <span class="font-semibold ml-2">18 months</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Classes:</span>
+                                    <span class="font-semibold ml-2">4 per week</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Batch Size:</span>
+                                    <span class="font-semibold ml-2">12 students</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Fee:</span>
+                                    <span class="font-semibold ml-2">₹4,500/month</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                            Enroll Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Competitive Batch Tab -->
+            <div id="competitive" class="tab-content">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="reveal">
+                        <img src="images/brochure_page3_full.png" alt="Competitive Batch" class="w-full rounded-xl shadow-lg">
+                    </div>
+                    
+                    <div class="reveal">
+                        <h2 class="text-4xl font-bold text-gray-900 mb-4">Competitive Batch</h2>
+                        <p class="text-xl text-orange-600 font-semibold mb-6">12th Onwards</p>
+                        <p class="text-gray-600 text-lg mb-6">
+                            Advanced course for students pursuing computer science in college or 
+                            preparing for technical interviews. Covers professional-level algorithms 
+                            and competitive programming strategies.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <h3 class="text-2xl font-bold text-gray-900">What You'll Learn:</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Advanced algorithms (DP, Graph, String)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Complex data structures (Segment trees, Fenwick trees)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Interview preparation strategies</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Real-world project development</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Industry mentorship and guidance</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-xl mb-8">
+                            <h4 class="text-lg font-bold text-gray-900 mb-3">Course Details</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-gray-500">Duration:</span>
+                                    <span class="font-semibold ml-2">24 months</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Classes:</span>
+                                    <span class="font-semibold ml-2">5 per week</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Batch Size:</span>
+                                    <span class="font-semibold ml-2">10 students</span>
+                                </div>
+                                <div>
+                                    <span class="text-gray-500">Fee:</span>
+                                    <span class="font-semibold ml-2">₹6,000/month</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="contact.html" class="inline-block bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                            Enroll Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Admission Process -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Admission Process</h2>
+                <p class="text-xl text-gray-600">Simple steps to join VG CS Classes</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-blue-600">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Consultation</h3>
+                    <p class="text-gray-600">Schedule a free consultation to discuss your learning goals and choose the right course.</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-orange-600">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Assessment</h3>
+                    <p class="text-gray-600">Take a simple assessment test to determine your current skill level and suitable batch.</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-green-600">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Enrollment</h3>
+                    <p class="text-gray-600">Complete the enrollment process with required documents and fee payment.</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-purple-600">4</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Start Learning</h3>
+                    <p class="text-gray-600">Begin your classes and embark on your journey to computer science excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fee Calculator -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Fee Calculator</h2>
+                <p class="text-xl text-gray-600">Calculate your course fees and available discounts</p>
+            </div>
+            
+            <div class="fee-calculator rounded-xl p-8 text-white">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Course Selection</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Select Course</label>
+                                <select id="courseSelect" class="w-full p-3 rounded-lg text-gray-900" onchange="calculateFee()">
+                                    <option value="foundation">Foundation Batch - ₹3,000/month</option>
+                                    <option value="pre-competitive">Pre-Competitive - ₹4,500/month</option>
+                                    <option value="competitive">Competitive Batch - ₹6,000/month</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Course Duration (months)</label>
+                                <input type="number" id="duration" value="12" min="1" max="24" class="w-full p-3 rounded-lg text-gray-900" onchange="calculateFee()">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Payment Mode</label>
+                                <select id="paymentMode" class="w-full p-3 rounded-lg text-gray-900" onchange="calculateFee()">
+                                    <option value="monthly">Monthly Payment</option>
+                                    <option value="quarterly">Quarterly Payment (5% discount)</option>
+                                    <option value="yearly">Yearly Payment (10% discount)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Fee Breakdown</h3>
+                        <div class="bg-white/20 rounded-lg p-6">
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span>Monthly Fee:</span>
+                                    <span id="monthlyFee" class="font-bold">₹3,000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Duration:</span>
+                                    <span id="totalDuration" class="font-bold">12 months</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Subtotal:</span>
+                                    <span id="subtotal" class="font-bold">₹36,000</span>
+                                </div>
+                                <div class="flex justify-between text-green-300">
+                                    <span>Discount:</span>
+                                    <span id="discount" class="font-bold">₹0</span>
+                                </div>
+                                <hr class="border-white/30">
+                                <div class="flex justify-between text-xl font-bold">
+                                    <span>Total Payable:</span>
+                                    <span id="totalFee">₹36,000</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6">
+                                <a href="contact.html" class="block w-full bg-white text-blue-800 text-center py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                                    Proceed to Enrollment
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Get answers to common questions about our courses</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg shadow-sm reveal">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">What is the minimum age to join courses?</h3>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">Students from class 6th onwards can join our Foundation Batch. There's no upper age limit for learning!</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm reveal">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">Do you provide study materials?</h3>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">Yes, we provide comprehensive study materials, practice problems, and online resources for all courses.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm reveal">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">Can I change my batch after enrollment?</h3>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">Yes, you can change your batch within the first month based on your assessment and availability.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm reveal">
+                    <button class="w-full text-left p-6 focus:outline-none" onclick="toggleFAQ(this)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-900">Do you offer placement assistance?</h3>
+                            <i class="fas fa-chevron-down text-gray-400 transform transition-transform"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-600">Yes, we provide placement assistance for competitive batch students and help with interview preparation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 bg-blue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Choose the course that fits your goals and join thousands of successful students 
+                who have transformed their careers with VG CS Classes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
+                    Book Free Consultation
+                </a>
+                <a href="about.html" class="bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all border border-white/30">
+                    Learn More About Us
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/vgcs_page0_full.png" alt="VG CS Classes" class="h-8 w-auto">
+                        <span class="ml-2 text-lg font-bold">VG CS Classes</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Premier computer science coaching institute in Sikar, 
+                        dedicated to building future tech leaders.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Courses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="courses.html#foundation" class="hover:text-white transition-colors">Foundation Batch</a></li>
+                        <li><a href="courses.html#pre-competitive" class="hover:text-white transition-colors">Pre Competitive</a></li>
+                        <li><a href="courses.html#competitive" class="hover:text-white transition-colors">Competitive Batch</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>3rd Floor, Rex Plaza, Near Kalyan Circle, Sikar (Raj.)</p>
+                        <p><i class="fas fa-envelope mr-2"></i>vgcsclasses@gmail.com</p>
+                        <p><i class="fas fa-phone mr-2"></i>+91 8306940655</p>
+                        <p><i class="fas fa-phone mr-2"></i>+91 6377942938</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 VG CS Classes. All rights reserved. | Designed with ❤️ for students</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Action Buttons -->
+    <button class="floating-btn whatsapp-btn w-14 h-14 rounded-full text-white shadow-lg flex items-center justify-center" onclick="window.open('https://wa.me/918306940655', '_blank')">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </button>
+    
+    <button class="floating-btn call-btn w-14 h-14 rounded-full text-white shadow-lg flex items-center justify-center" onclick="window.location.href='tel:+918306940655'">
+        <i class="fas fa-phone text-xl"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script>
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+        
+        // Fee calculator
+        function calculateFee() {
+            const courseSelect = document.getElementById('courseSelect');
+            const duration = document.getElementById('duration');
+            const paymentMode = document.getElementById('paymentMode');
+            
+            const courseFees = {
+                'foundation': 3000,
+                'pre-competitive': 4500,
+                'competitive': 6000
+            };
+            
+            const discounts = {
+                'monthly': 0,
+                'quarterly': 0.05,
+                'yearly': 0.10
+            };
+            
+            const monthlyFee = courseFees[courseSelect.value];
+            const months = parseInt(duration.value);
+            const discount = discounts[paymentMode.value];
+            
+            const subtotal = monthlyFee * months;
+            const discountAmount = subtotal * discount;
+            const total = subtotal - discountAmount;
+            
+            document.getElementById('monthlyFee').textContent = `₹${monthlyFee.toLocaleString()}`;
+            document.getElementById('totalDuration').textContent = `${months} months`;
+            document.getElementById('subtotal').textContent = `₹${subtotal.toLocaleString()}`;
+            document.getElementById('discount').textContent = `₹${discountAmount.toLocaleString()}`;
+            document.getElementById('totalFee').textContent = `₹${total.toLocaleString()}`;
+        }
+        
+        // FAQ toggle
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                answer.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Initialize fee calculator
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateFee();
+        });
+    </script>
+</body>
+</html>

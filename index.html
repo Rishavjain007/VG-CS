@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VG CS Classes - Computer Science Excellence in Sikar</title>
+    <meta name="description" content="VG CS Classes - Premier computer science coaching in Sikar. Join our Foundation, Pre-Competitive, and Competitive batches for computer science excellence.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link href="https://unpkg.com/splitting@1.0.6/dist/splitting.css" rel="stylesheet">
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #f97316 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f97316, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-btn {
+            bottom: 100px;
+            right: 20px;
+            background: #25d366;
+        }
+        
+        .call-btn {
+            bottom: 40px;
+            right: 20px;
+            background: #f97316;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="images/vgcs_page0_full.png" alt="VG CS Classes" class="h-10 w-auto">
+                    <span class="ml-2 text-xl font-bold text-gray-900">VG CS Classes</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-blue-800 font-medium border-b-2 border-orange-500 pb-1">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-800 transition-colors">About</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-blue-800 transition-colors">Courses</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-800 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden mobile-menu-btn">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg md:hidden">
+            <div class="p-4">
+                <button class="mobile-menu-close mb-4">
+                    <i class="fas fa-times text-gray-700 text-xl"></i>
+                </button>
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-blue-800 font-medium py-2 border-l-4 border-orange-500 pl-3">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">About</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">Courses</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="particles-container" id="particles-js"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="mb-8">
+                <img src="images/vgcs_page0_full.png" alt="VG CS Classes" class="h-32 w-auto mx-auto mb-6 opacity-90">
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-6 hero-title">
+                    VG CS CLASSES
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-4 hero-subtitle">
+                    Your Gateway to Computer Science Excellence
+                </p>
+                <p class="text-lg text-white/80 mb-8 max-w-2xl mx-auto hero-description">
+                    Premier computer science coaching in Sikar. From foundation to competitive programming, 
+                    we shape the future tech leaders with expert guidance and modern infrastructure.
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center hero-buttons">
+                <a href="courses.html" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">
+                    Explore Courses
+                </a>
+                <a href="contact.html" class="bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 border border-white/30">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+    
+    <!-- About Preview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">About VG CS Classes</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Building future tech leaders with comprehensive computer science education 
+                    and competitive programming excellence.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="text-center reveal card-hover bg-blue-50 p-8 rounded-xl">
+                    <div class="text-4xl font-bold text-blue-800 mb-2 counter" data-target="1500">0</div>
+                    <p class="text-gray-600 font-medium">Students Taught</p>
+                </div>
+                <div class="text-center reveal card-hover bg-orange-50 p-8 rounded-xl">
+                    <div class="text-4xl font-bold text-orange-600 mb-2 counter" data-target="95">0</div>
+                    <p class="text-gray-600 font-medium">Success Rate %</p>
+                </div>
+                <div class="text-center reveal card-hover bg-green-50 p-8 rounded-xl">
+                    <div class="text-4xl font-bold text-green-600 mb-2 counter" data-target="5">0</div>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
+                </div>
+            </div>
+            
+            <div class="text-center reveal">
+                <a href="about.html" class="bg-blue-800 hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Learn More About Us
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Course Highlights -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Courses</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive computer science programs designed for different skill levels 
+                    and academic stages.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Foundation Batch -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover reveal">
+                    <img src="images/brochure_page1_full.png" alt="Foundation Batch" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Foundation Batch</h3>
+                        <p class="text-orange-600 font-semibold mb-2">Class 6th - 10th</p>
+                        <p class="text-gray-600 mb-4">
+                            Build strong fundamentals in computer science, programming basics, 
+                            and logical thinking. Perfect for young learners starting their journey.
+                        </p>
+                        <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Basic Programming Concepts</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Logical Reasoning</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Problem Solving</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Computer Fundamentals</li>
+                        </ul>
+                        <a href="courses.html#foundation" class="block w-full text-center bg-blue-800 hover:bg-blue-900 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Pre Competitive Batch -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover reveal">
+                    <img src="images/brochure_page2_full.png" alt="Pre Competitive Batch" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Pre Competitive</h3>
+                        <p class="text-orange-600 font-semibold mb-2">Class 11th - 12th</p>
+                        <p class="text-gray-600 mb-4">
+                            Advanced programming concepts, data structures, and competitive 
+                            programming fundamentals for higher secondary students.
+                        </p>
+                        <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Data Structures</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Algorithms</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Competitive Programming</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Project Development</li>
+                        </ul>
+                        <a href="courses.html#pre-competitive" class="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Competitive Batch -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover reveal">
+                    <img src="images/brochure_page3_full.png" alt="Competitive Batch" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Competitive Batch</h3>
+                        <p class="text-orange-600 font-semibold mb-2">12th Onwards</p>
+                        <p class="text-gray-600 mb-4">
+                            Advanced competitive programming, interview preparation, and 
+                            professional-level algorithmic problem solving.
+                        </p>
+                        <ul class="text-sm text-gray-600 mb-6 space-y-1">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Advanced Algorithms</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Interview Preparation</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Real-world Projects</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i>Industry Mentorship</li>
+                        </ul>
+                        <a href="courses.html#competitive" class="block w-full text-center bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose VG CS Classes?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We provide the perfect blend of quality education, modern infrastructure, 
+                    and personalized attention.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chalkboard-teacher text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Expert Faculty</h3>
+                    <p class="text-gray-600">Industry experienced teachers with proven track records</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-laptop-code text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Modern Labs</h3>
+                    <p class="text-gray-600">State-of-the-art computer labs with latest technology</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Small Batches</h3>
+                    <p class="text-gray-600">Personalized attention with limited batch sizes</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Proven Results</h3>
+                    <p class="text-gray-600">Consistent success in competitive exams and placements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Students Say</h2>
+                <p class="text-xl text-gray-600">Success stories from our students</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">Ankit Sharma</h4>
+                            <p class="text-sm text-gray-600">Foundation Batch</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "VG CS Classes transformed my understanding of programming. The faculty is amazing 
+                        and the practical approach helped me build strong fundamentals."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                            P
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">Priya Patel</h4>
+                            <p class="text-sm text-gray-600">Pre-Competitive Batch</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "The competitive programming training here is exceptional. I cleared multiple 
+                        coding competitions thanks to the excellent guidance."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg reveal">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+                            R
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-gray-900">Rahul Kumar</h4>
+                            <p class="text-sm text-gray-600">Competitive Batch</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Joined for interview preparation and got placed in a top MNC. The advanced 
+                        algorithms and data structures course was exactly what I needed."
+                    </p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 bg-blue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Join hundreds of successful students who have transformed their careers 
+                with VG CS Classes.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="courses.html" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
+                    View All Courses
+                </a>
+                <a href="contact.html" class="bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all border border-white/30">
+                    Get Admission Details
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/vgcs_page0_full.png" alt="VG CS Classes" class="h-8 w-auto">
+                        <span class="ml-2 text-lg font-bold">VG CS Classes</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Premier computer science coaching institute in Sikar, 
+                        dedicated to building future tech leaders.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Courses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="courses.html#foundation" class="hover:text-white transition-colors">Foundation Batch</a></li>
+                        <li><a href="courses.html#pre-competitive" class="hover:text-white transition-colors">Pre Competitive</a></li>
+                        <li><a href="courses.html#competitive" class="hover:text-white transition-colors">Competitive Batch</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>3rd Floor, Rex Plaza, Near Kalyan Circle, Sikar (Raj.)</p>
+                        <p><i class="fas fa-envelope mr-2"></i>vgcsclasses@gmail.com</p>
+                        <p><i class="fas fa-phone mr-2"></i>+91 8306940655</p>
+                        <p><i class="fas fa-phone mr-2"></i>+91 6377942938</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 VG CS Classes. All rights reserved. | Designed with ❤️ for students</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Action Buttons -->
+    <button class="floating-btn whatsapp-btn w-14 h-14 rounded-full text-white shadow-lg flex items-center justify-center" onclick="window.open('https://wa.me/918306940655', '_blank')">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </button>
+    
+    <button class="floating-btn call-btn w-14 h-14 rounded-full text-white shadow-lg flex items-center justify-center" onclick="window.location.href='tel:+918306940655'">
+        <i class="fas fa-phone text-xl"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

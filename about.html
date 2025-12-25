@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - VG CS Classes | Premier Computer Science Institute in Sikar</title>
+    <meta name="description" content="Learn about VG CS Classes - Sikar's premier computer science coaching institute. Our mission, vision, facilities, and commitment to student success.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-btn {
+            bottom: 100px;
+            right: 20px;
+            background: #25d366;
+        }
+        
+        .call-btn {
+            bottom: 40px;
+            right: 20px;
+            background: #f97316;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #f97316;
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="images/vgcs_page0_full.png" alt="VG CS Classes" class="h-10 w-auto">
+                    <span class="ml-2 text-xl font-bold text-gray-900">VG CS Classes</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-800 transition-colors">Home</a>
+                    <a href="about.html" class="text-blue-800 font-medium border-b-2 border-orange-500 pb-1">About</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-blue-800 transition-colors">Courses</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-800 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden mobile-menu-btn">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg md:hidden">
+            <div class="p-4">
+                <button class="mobile-menu-close mb-4">
+                    <i class="fas fa-times text-gray-700 text-xl"></i>
+                </button>
+                <nav class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">Home</a>
+                    <a href="about.html" class="text-blue-800 font-medium py-2 border-l-4 border-orange-500 pl-3">About</a>
+                    <a href="courses.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">Courses</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-blue-800 py-2 pl-4 transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Page Header -->
+    <section class="bg-blue-800 pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-blue-200 mb-4">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <span class="mx-2">/</span>
+                <span class="text-white">About Us</span>
+            </nav>
+            <h1 class="text-5xl font-bold text-white mb-4">About VG CS Classes</h1>
+            <p class="text-xl text-blue-100 max-w-3xl">
+                Building the future of technology education, one student at a time. 
+                Discover our journey towards excellence in computer science coaching.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Institute Story -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <img src="images/brochure_page0_full.png" alt="VG CS Classes" class="w-full rounded-xl shadow-lg">
+                </div>
+                
+                <div class="reveal">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Founded in 2019, VG CS Classes emerged from a simple vision: to make quality 
+                        computer science education accessible to every student in Sikar. What started 
+                        as a small coaching center has now grown into the region's most trusted 
+                        computer science institute.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Our founder, with years of industry experience in top tech companies, 
+                        understood the gap between academic curriculum and industry requirements. 
+                        This understanding shaped our teaching methodology that combines theoretical 
+                        knowledge with practical application.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Today, we're proud to have guided over 1500 students towards successful 
+                        careers in technology, with many placed in top companies and prestigious 
+                        institutions across India.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <div class="text-3xl font-bold text-blue-800 mb-2 counter" data-target="5">0</div>
+                            <p class="text-gray-600">Years of Excellence</p>
+                        </div>
+                        <div class="text-center p-4 bg-orange-50 rounded-lg">
+                            <div class="text-3xl font-bold text-orange-600 mb-2 counter" data-target="1500">0</div>
+                            <p class="text-gray-600">Students Taught</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-bullseye text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            To empower students with cutting-edge computer science knowledge and 
+                            practical programming skills that prepare them for the challenges of 
+                            the digital age. We strive to bridge the gap between academic learning 
+                            and industry requirements through innovative teaching methods and 
+                            hands-on experience.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-eye text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            To become the leading computer science education hub in Rajasthan, 
+                            recognized for producing industry-ready professionals and competitive 
+                            programmers. We envision a future where every student from Sikar has 
+                            access to world-class computer science education and opportunities 
+                            in top technology companies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Key Statistics -->
+    <section class="py-20 bg-blue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Our Achievements</h2>
+                <p class="text-xl text-blue-100">Numbers that speak for our commitment to excellence</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center reveal">
+                    <div class="text-5xl font-bold text-white mb-2 counter" data-target="1500">0</div>
+                    <p class="text-blue-200 text-lg">Students Taught</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="text-5xl font-bold text-white mb-2 counter" data-target="95">0</div>
+                    <p class="text-blue-200 text-lg">Success Rate %</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="text-5xl font-bold text-white mb-2 counter" data-target="120">0</div>
+                    <p class="text-blue-200 text-lg">Placements</p>
+                </div>
+                
+                <div class="text-center reveal">
+                    <div class="text-5xl font-bold text-white mb-2 counter" data-target="25">0</div>
+                    <p class="text-blue-200 text-lg">Competition Winners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Facilities -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Facilities</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    State-of-the-art infrastructure designed to provide the best learning experience 
+                    for our students.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl card-hover reveal">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-desktop text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Modern Computer Labs</h3>
+                    <p class="text-gray-600">
+                        Fully equipped labs with high-performance computers, latest software, 
+                        and high-speed internet connectivity for uninterrupted learning.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl card-hover reveal">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-book text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Digital Library</h3>
+                    <p class="text-gray-600">
+                        Extensive collection of e-books, online resources, and practice materials 
+                        accessible to all students for comprehensive learning.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl card-hover reveal">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-wifi text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">High-Speed Internet</h3>
+                    <p class="text-gray-600">
+                        24/7 high-speed Wi-Fi connectivity throughout the institute for seamless 
+                        online learning and research activities.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl card-hover reveal">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chalkboard text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Smart Classrooms</h3>
+                    <p class="text-gray-600">
+                        Air-conditioned classrooms equipped with projectors and interactive 
+                        whiteboards for enhanced learning experiences.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl card-hover reveal">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Discussion Rooms</h3>
+                    <p class="text-gray-600">
+                        Dedicated spaces for group discussions, project work, and collaborative 
+                        learning among students.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl card-hover reveal">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-coffee text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Student Lounge</h3>
+                    <p class="text-gray-600">
+                        Comfortable relaxation area with refreshments where students can unwind 
+                        and interact with peers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievement Timeline -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Journey</h2>
+                <p class="text-xl text-gray-600">Milestones that mark our path to excellence</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <div class="timeline-item reveal">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2019</span>
+                                <h3 class="text-xl font-bold text-gray-900 ml-4">Foundation</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                VG CS Classes was founded with a vision to provide quality computer 
+                                science education in Sikar. Started with just 20 students and basic facilities.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2020</span>
+                                <h3 class="text-xl font-bold text-gray-900 ml-4">Digital Transformation</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Adapted to online learning during the pandemic, introduced digital 
+                                classrooms and remote learning capabilities. Student count grew to 150.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2021</span>
+                                <h3 class="text-xl font-bold text-gray-900 ml-4">First Success Stories</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Our first batch of competitive programming students achieved remarkable 
+                                success in coding competitions. Infrastructure expanded with new labs.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2022</span>
+                                <h3 class="text-xl font-bold text-gray-900 ml-4">Industry Partnerships</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Established partnerships with leading tech companies for placements 
+                                and internships. Launched advanced competitive programming batches.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2023</span>
+                                <h3 class="text-xl font-bold text-gray-900 ml-4">Award Recognition</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Received "Best Computer Science Institute in Sikar" award. 
+                                Student count crossed 1000 with 95% success rate in placements.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item reveal">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">2024</span>
+                                <h3 class="text-xl font-bold text-gray-900 ml-4">Present Day</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Leading computer science institute in Rajasthan with 1500+ students, 
+                                modern infrastructure, and proven track record of success.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Faculty -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Expert Faculty</h2>
+                <p class="text-xl text-gray-600">Meet the passionate educators behind our success</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center reveal card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                        VK
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Vikas Kumar</h3>
+                    <p class="text-orange-600 font-semibold mb-3">Founder & Lead Instructor</p>
+                    <p class="text-gray-600 mb-4">
+                        8+ years of industry experience at Google and Microsoft. 
+                        Expert in competitive programming and system design.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Algorithms</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">System Design</span>
+                    </div>
+                </div>
+                
+                <div class="text-center reveal card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                        PS
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Pooja Sharma</h3>
+                    <p class="text-orange-600 font-semibold mb-3">Senior Programming Instructor</p>
+                    <p class="text-gray-600 mb-4">
+                        Former software engineer at Amazon with expertise in 
+                        full-stack development and competitive programming.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">Web Development</span>
+                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-sm">Data Structures</span>
+                    </div>
+                </div>
+                
+                <div class="text-center reveal card-hover bg-gray-50 p-8 rounded-xl">
+                    <div class="w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                        RG
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Rahul Gupta</h3>
+                    <p class="text-orange-600 font-semibold mb-3">Competitive Programming Expert</p>
+                    <p class="text-gray-600 mb-4">
+                        ICPC World Finalist and Codeforces Grandmaster. 
+                        Specialized in advanced algorithms and problem-solving.
+                    </p>
+                    <div class="flex justify-center space-x-3">
+                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">ICPC</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">Algorithms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-20 bg-blue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Ready to Join Our Success Story?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Become part of the VG CS Classes family and start your journey towards 
+                computer science excellence today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="courses.html" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
+                    Explore Our Courses
+                </a>
+                <a href="contact.html" class="bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all border border-white/30">
+                    Schedule a Visit
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="images/vgcs_page0_full.png" alt="VG CS Classes" class="h-8 w-auto">
+                        <span class="ml-2 text-lg font-bold">VG CS Classes</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Premier computer science coaching institute in Sikar, 
+                        dedicated to building future tech leaders.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Courses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="courses.html#foundation" class="hover:text-white transition-colors">Foundation Batch</a></li>
+                        <li><a href="courses.html#pre-competitive" class="hover:text-white transition-colors">Pre Competitive</a></li>
+                        <li><a href="courses.html#competitive" class="hover:text-white transition-colors">Competitive Batch</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>3rd Floor, Rex Plaza, Near Kalyan Circle, Sikar (Raj.)</p>
+                        <p><i class="fas fa-envelope mr-2"></i>vgcsclasses@gmail.com</p>
+                        <p><i class="fas fa-phone mr-2"></i>+91 8306940655</p>
+                        <p><i class="fas fa-phone mr-2"></i>+91 6377942938</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 VG CS Classes. All rights reserved. | Designed with ❤️ for students</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Action Buttons -->
+    <button class="floating-btn whatsapp-btn w-14 h-14 rounded-full text-white shadow-lg flex items-center justify-center" onclick="window.open('https://wa.me/918306940655', '_blank')">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </button>
+    
+    <button class="floating-btn call-btn w-14 h-14 rounded-full text-white shadow-lg flex items-center justify-center" onclick="window.location.href='tel:+918306940655'">
+        <i class="fas fa-phone text-xl"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
